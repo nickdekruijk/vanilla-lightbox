@@ -86,6 +86,7 @@ window.Lightbox = function(options) {
     function open(t) {
         // Get attributes and info about the link
         currentIndex = parseInt(t.getAttribute(parent.setting.attributePrefix + '-index'));
+        var caption = t.getAttribute(parent.setting.attributePrefix + '-caption');
         var href = t.getAttribute('href');
         var ext = href.split('.').pop().toLowerCase();
         var isImage = ['png', 'jpg', 'jpeg', 'gif', 'svg'].indexOf(ext) > -1;
@@ -100,9 +101,16 @@ window.Lightbox = function(options) {
 
         // Create html output
         var html = '<div class="'+parent.setting.className+'-container">';
+        html += '<table class="'+parent.setting.className+'-table">';
+        html += '<tr class="'+parent.setting.className+'-tr">';
+        html += '<td class="'+parent.setting.className+'-image">';
         if (isImage) {
-            html += '<img class="'+parent.setting.className+'-image" src="'+href+'">';
+            html += '<img class="'+parent.setting.className+'-img" src="'+href+'">';
         }
+        html += '</td>';
+        html += '<td class="'+parent.setting.className+'-caption">'+caption+'</td>';
+        html += '</tr>';
+        html += '</table>';
         html += '</div>';
         parent.DOMelement.innerHTML = html;
 
