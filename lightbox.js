@@ -90,6 +90,8 @@ window.Lightbox = function(options) {
         var href = t.getAttribute('href');
         var ext = href.split('.').pop().toLowerCase();
         var isImage = ['png', 'jpg', 'jpeg', 'gif', 'svg'].indexOf(ext) > -1;
+        var isVimeo = href.match(/^.*(vimeo\.com\/)((channels\/[A-z]+\/)|(groups\/[A-z]+\/videos\/))?([0-9]+)/);
+        var isYoutube = href.match(/^.*(youtu.be\/|youtube(-nocookie)?.com\/(v\/|.*u\/\w\/|embed\/|.*v=))([\w-]{11}).*/);
 
         // Create main DOM element if not present
         if (!parent.DOMelement) {
@@ -106,6 +108,17 @@ window.Lightbox = function(options) {
         html += '<td class="'+parent.setting.className+'-image">';
         if (isImage) {
             html += '<img class="'+parent.setting.className+'-img" src="'+href+'">';
+        } else {
+            var src = href;
+            html += '<div class="'+parent.setting.className+'-iframe">';
+            if (isVimeo) {
+                html += '<iframe src="https://player.vimeo.com/video/'+isVimeo[5]+'?autoplay=1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+            } else if (isYoutube) {
+                html += '<iframe src="https://www.youtube-nocookie.com/embed/'+isYoutube[4]+'?modestbranding=1&rel=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+            } else {
+                html += '<iframe src="'+src+'"></frame>';
+            }
+            html += '</div>';
         }
         html += '</td>';
         if (caption) {
