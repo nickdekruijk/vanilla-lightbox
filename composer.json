@@ -1,0 +1,16 @@
+{
+    "name": "nickdekruijk/lightbox.js",
+    "description": "A vanilla javascript lightbox",
+    "license": "MIT",
+	"keywords": [
+		"lightbox",
+		"javascript",
+	],
+    "authors": [
+        {
+            "name": "Nick de Kruijk",
+            "email": "git@nickdekruijk.nl"
+        }
+    ],
+    "minimum-stability": "dev"
+}
