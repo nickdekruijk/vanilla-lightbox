@@ -101,17 +101,17 @@
     content:'';
     position:absolute;
     transform:rotate(45deg);
-    left:8px;
-    top:12px;
-    width:15px;
-    height:15px;
-    border-top:5px solid #fff;
-    border-right:5px solid #fff;
+    left:12px;
+    top:14px;
+    width:16px;
+    height:16px;
+    border-top:4px solid #fff;
+    border-right:4px solid #fff;
     transition:border-color .25s;
 }
 .lightbox-button-prev:after {
     transform:rotate(-135deg);
-    left:15px;
+    left:16px;
 }
 .lightbox-button-next {
     right:15px;
@@ -123,19 +123,19 @@
     content:'';
     position:absolute;
     transform:rotate(45deg);
-    left:7px;
+    left:9px;
     top:20px;
-    width:30px;
-    border-top:5px solid #fff;
+    width:26px;
+    border-top:4px solid #fff;
     transition:border-color .25s;
 }
 .lightbox-button-close:before {
     content:'';
     position:absolute;
     transform:rotate(-45deg);
-    left:7px;
+    left:9px;
     top:20px;
-    width:30px;
-    border-top:5px solid #fff;
+    width:26px;
+    border-top:4px solid #fff;
     transition:border-color .25s;
 }
