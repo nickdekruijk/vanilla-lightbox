@@ -108,7 +108,9 @@ window.Lightbox = function(options) {
             html += '<img class="'+parent.setting.className+'-img" src="'+href+'">';
         }
         html += '</td>';
-        html += '<td class="'+parent.setting.className+'-caption">'+caption+'</td>';
+        if (caption) {
+            html += '<td class="'+parent.setting.className+'-caption">'+caption+'</td>';
+        }
         html += '</tr>';
         html += '</table>';
         html += '</div>';
