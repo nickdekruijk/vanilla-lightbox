@@ -112,7 +112,7 @@
     content:'';
     position:absolute;
     transform:rotate(45deg);
-    left:12px;
+    left:11px;
     top:14px;
     width:16px;
     height:16px;
@@ -122,7 +122,7 @@
 }
 .lightbox-button-prev:after {
     transform:rotate(-135deg);
-    left:16px;
+    left:17px;
 }
 .lightbox-button-next {
     right:15px;
