@@ -16,6 +16,7 @@ window.Lightbox = function(options) {
         attributePrefix: 'data-lightbox',
         loop: true,
     }
+
     // Merge defaults and options into settings to use
     Object.assign(this.setting = {}, this.defaults, options);
 
@@ -67,7 +68,7 @@ window.Lightbox = function(options) {
 
     // Close the Lightbox
     function close(e) {
-        if (e.target.classList.contains(parent.setting.className+'-button') && !e.target.classList.contains(parent.setting.className+'-button-close')) {
+        if (e.target.classList.contains(parent.setting.className + '-button') && !e.target.classList.contains(parent.setting.className + '-button-close')) {
             return false;
         }
         if (parent.DOMelement) {
@@ -97,32 +98,32 @@ window.Lightbox = function(options) {
         if (!parent.DOMelement) {
             var html = document.createElement('DIV');
             html.addEventListener('click', close);
-            html.className = parent.setting.className+'-modal';
+            html.className = parent.setting.className + '-modal';
             parent.DOMelement = document.body.appendChild(html);
         }
 
         // Create html output
-        var html = '<div class="'+parent.setting.className+'-container">';
-        html += '<table class="'+parent.setting.className+'-table">';
-        html += '<tr class="'+parent.setting.className+'-tr">';
-        html += '<td class="'+parent.setting.className+'-image">';
+        var html = '<div class="' + parent.setting.className + '-container">';
+        html += '<table class="' + parent.setting.className + '-table">';
+        html += '<tr class="' + parent.setting.className + '-tr">';
+        html += '<td class="' + parent.setting.className + '-image">';
         if (isImage) {
-            html += '<img class="'+parent.setting.className+'-img" src="'+href+'">';
+            html += '<img class="' + parent.setting.className + '-img" src="' + href + '">';
         } else {
             var src = href;
-            html += '<div class="'+parent.setting.className+'-iframe">';
+            html += '<div class="' + parent.setting.className + '-iframe">';
             if (isVimeo) {
-                html += '<iframe src="https://player.vimeo.com/video/'+isVimeo[5]+'?autoplay=1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+                html += '<iframe src="https://player.vimeo.com/video/' + isVimeo[5] + '?autoplay=1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
             } else if (isYoutube) {
-                html += '<iframe src="https://www.youtube-nocookie.com/embed/'+isYoutube[4]+'?modestbranding=1&rel=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+                html += '<iframe src="https://www.youtube-nocookie.com/embed/' + isYoutube[4] + '?modestbranding=1&rel=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
             } else {
-                html += '<iframe src="'+src+'"></frame>';
+                html += '<iframe src="' + src + '"></frame>';
             }
             html += '</div>';
         }
         html += '</td>';
         if (caption) {
-            html += '<td class="'+parent.setting.className+'-caption">'+caption+'</td>';
+            html += '<td class="' + parent.setting.className + '-caption">' + caption + '</td>';
         }
         html += '</tr>';
         html += '</table>';
@@ -131,15 +132,15 @@ window.Lightbox = function(options) {
 
         // Add close button
         var button = document.createElement('SPAN');
-        button.classList.add(parent.setting.className+'-button');
-        button.classList.add(parent.setting.className+'-button-close');
+        button.classList.add(parent.setting.className + '-button');
+        button.classList.add(parent.setting.className + '-button-close');
         parent.DOMelement.appendChild(button);
 
         // Add previous button if needed
         if (elements.length > 1 && (currentIndex > 0 || parent.setting.loop)) {
             var button = document.createElement('SPAN');
-            button.classList.add(parent.setting.className+'-button');
-            button.classList.add(parent.setting.className+'-button-prev');
+            button.classList.add(parent.setting.className + '-button');
+            button.classList.add(parent.setting.className + '-button-prev');
             parent.DOMelement.appendChild(button).addEventListener('click', function(e) {
                 openByIndex(currentIndex - 1);
             });
@@ -148,8 +149,8 @@ window.Lightbox = function(options) {
         // Add next button if needed
         if (elements.length > 1 && (currentIndex < elements.length - 1 || parent.setting.loop)) {
             var button = document.createElement('SPAN');
-            button.classList.add(parent.setting.className+'-button');
-            button.classList.add(parent.setting.className+'-button-next');
+            button.classList.add(parent.setting.className + '-button');
+            button.classList.add(parent.setting.className + '-button-next');
             parent.DOMelement.appendChild(button).addEventListener('click', function(e) {
                 openByIndex(currentIndex + 1);
             });
