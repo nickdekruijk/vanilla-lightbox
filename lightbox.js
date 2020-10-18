@@ -114,7 +114,7 @@ window.Lightbox = function(options) {
             var src = href;
             html += '<div class="' + parent.setting.className + '-iframe">';
             if (isVimeo) {
-                html += '<iframe src="https://player.vimeo.com/video/' + isVimeo[5] + '?autoplay=1&title=0&byline=0&portrait=0&playsinline=0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
+                html += '<iframe src="https://player.vimeo.com/video/' + isVimeo[5] + '?dnt=1&autoplay=1&title=0&byline=0&portrait=0&playsinline=0" allow="autoplay; fullscreen" allowfullscreen></iframe>';
             } else if (isYoutube) {
                 html += '<iframe src="https://www.youtube-nocookie.com/embed/' + isYoutube[4] + '?modestbranding=1&rel=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
             } else {
