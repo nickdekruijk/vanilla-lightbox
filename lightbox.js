@@ -87,6 +87,7 @@ window.Lightbox = function(options) {
     function open(t) {
         // Get attributes and info about the link
         currentIndex = parseInt(t.getAttribute(parent.setting.attributePrefix + '-index'));
+        var iframesrc = t.getAttribute(parent.setting.attributePrefix + '-iframesrc');
         var caption = t.getAttribute(parent.setting.attributePrefix + '-caption');
         var href = t.getAttribute('href');
         var ext = href.split('.').pop().toLowerCase();
@@ -117,7 +118,7 @@ window.Lightbox = function(options) {
             } else if (isYoutube) {
                 html += '<iframe src="https://www.youtube-nocookie.com/embed/' + isYoutube[4] + '?modestbranding=1&rel=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
             } else {
-                html += '<iframe src="' + src + '"></frame>';
+                html += '<iframe src="' + (iframesrc ? iframesrc : src) + '" accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></frame>';
             }
             html += '</div>';
         }
